@@ -22,7 +22,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.afAth.authState.subscribe(data => {
-      if (data.email && data.uid) {
+      if (data && data.email && data.uid) {
         this.toast.create({
           message: 'Welcome ${this.user.email} to your profile',
           duration: 4000
