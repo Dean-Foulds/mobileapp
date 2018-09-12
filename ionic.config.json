@@ -1,0 +1,7 @@
+{
+  "name": "ProfileApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
