@@ -18,15 +18,15 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class ProfilePage {
 
-  profile = {} as Profile
+  profile = {} as Profile;
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase,
     public navCtrl: NavController, public navParams: NavParams) {
   }
   createProfile() {
     this.afAuth.authState.take(1).subscribe(auth => {
-      this.afDatabase.list(`profile/${auth.uid}`).push(this.profile)
-      .then(()  => this.navCtrl.push('HomePage'));
+      this.afDatabase.object(`profile/${auth.uid}`).set(this.profile)
+      .then(() => this.navCtrl.setRoot('HomePage'));
     })
   }
 
